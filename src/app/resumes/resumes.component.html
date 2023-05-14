@@ -1,0 +1,49 @@
+
+<div >
+    <app-search
+    (searchTextChanged)="onSearchTextEntered($event)"></app-search>
+    <app-filter
+    [total]=" getTotalResumes()"
+    [junior]=" getTotalJuniorResumes()"
+    [senior]="getTotalSeniorResumes()"
+    (filterRadioButtonSelectionChanged)="onFilterRadioButtonChanged($event)"
+    ></app-filter>
+</div>
+
+<section >
+    
+    <div class="container py-5">
+       
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4" >
+          <!--*ngIf="resumeCountRadioButton==='All'|| resumeCountRadioButton=== resume.level"-->
+          <ng-container  *ngFor="let resume of resumes">
+            <div class="col" *ngIf="(searchText === '' || resume.job.toLowerCase().includes(searchText)) && (resumeCountRadioButton === 'All' || resume.level === resumeCountRadioButton)">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <img src={{resume.photo}} alt="avatar"
+                          class="rounded-circle img-fluid" style="width: 150px;">
+                        <h5 class="my-3">{{resume.name}}</h5>
+                        <p class="text-muted mb-1">{{resume.job}}</p>
+                        <div class="details">
+                            <div class="resume-type" [ngStyle]="{color: resume.level === 'Junior' ? 'Green' : ' #ff6726'}">{{resume.level}}</div>
+                            <div class="resume-price"><b>Salary:</b> ${{resume.salary}}</div>
+                        </div>
+                        <p class="text-muted mb-4"></p>
+                        <div class="d-flex justify-content-center mb-2">
+                          <button type="button" class="btn btn-resume">Select</button>
+                          <button type="button" class="btn btn-outline-resume ms-1">Details</button>
+                        </div>
+                      </div>
+                </div>
+              </div>
+
+            </ng-container>
+
+
+        </div>  
+    </div>
+      
+  
+  </section>
+
+

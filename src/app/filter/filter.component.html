@@ -1,0 +1,19 @@
+<div class="filter-container">
+    <span style="color: #ff6726;"> <b> Filter :</b> </span>
+
+    <input  type="radio" name="filter" value="All" 
+    [(ngModel)]="selectedRadioButtonValue" 
+    (change)="onRadioButtonSelectionChanged()"/>
+    <span> {{'All levels ('+ all+')'}}</span>
+
+    <input type="radio" name="filter" value="Junior"
+     [(ngModel)]="selectedRadioButtonValue" 
+     (change)="onRadioButtonSelectionChanged()"/>
+    <span> {{'Junior level ('+ junior+')'}}</span>
+
+    <input type="radio" name="filter" value="Senior"
+     [(ngModel)]="selectedRadioButtonValue"
+     (change)="onRadioButtonSelectionChanged()"/>
+    <span>{{'Senior level ('+ senior+')'}}</span>
+
+</div>

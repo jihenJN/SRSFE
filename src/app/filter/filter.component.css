@@ -1,0 +1,10 @@
+.filter-container{
+    margin:10px 20px;
+   color: #8555c8;
+   text-align: center;
+}
+input[type=radio]{
+    margin-left:10px;
+    accent-color: #8555c8;
+}
+
